@@ -58,7 +58,6 @@ function initializeComponents() {
     initializeSkills();
     initializeContactForm();
     initializeParallax();
-    initializeTypewriter();
     initializeProjectModal();
 }
 
@@ -356,35 +355,11 @@ function initializeParallax() {
     }
 }
 
-// Effet de machine à écrire
-function initializeTypewriter() {
-    const heroName = document.querySelector('.hero-name');
-    if (!heroName) return;
-    
-    const text = heroName.textContent;
-    heroName.textContent = '';
-    heroName.classList.add('typing-effect');
-    
-    let i = 0;
-    const typeWriter = () => {
-        if (i < text.length) {
-            heroName.textContent += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 100);
-        } else {
-            heroName.classList.remove('typing-effect');
-        }
-    };
-    
-    // Démarrer l'effet après un délai
-    setTimeout(typeWriter, 1000);
-}
-
 // Initialiser le modal des projets
 function initializeProjectModal() {
     const modal = document.getElementById('project-modal');
     const modalContent = modal.querySelector('.modal-content');
-    const modalClose = modal.querySelector('.modal-close');
+    const modalClose = modal.querySelector('.close-modal');
     const projectCards = document.querySelectorAll('.project-card');
     const carouselImages = modal.querySelector('.carousel-images');
     const prevButton = modal.querySelector('.carousel-prev');
@@ -401,39 +376,82 @@ function initializeProjectModal() {
             // Remplir le modal
             modal.querySelector('.modal-title').textContent = projectData.title;
             modal.querySelector('.modal-description').textContent = projectData.description;
-            const techContainer = modal.querySelector('.modal-tech');
+            const techContainer = modal.querySelector('.modal-tech-list');
             techContainer.innerHTML = projectData.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('');
-            modal.querySelectorAll('.project-link')[0].href = `#${projectData.id}-demo`;
-            modal.querySelectorAll('.project-link')[1].href = `#${projectData.id}-github`;
+            
+            // Mettre à jour les liens des boutons d'action
+            const actionButtons = modal.querySelectorAll('.modal-actions a');
+            if (actionButtons.length >= 2) {
+                actionButtons[0].href = `#${projectData.id}-demo`;
+                actionButtons[1].href = `#${projectData.id}-github`;
+            }
 
             // Remplir le carousel
             carouselImages.innerHTML = images.map(img => 
-                `<div class="carousel-image-placeholder">🖼️</div>`
-                // Remplacez par `<img src="${img}" alt="${projectData.title} screenshot" class="carousel-image">` lorsque vous avez des images réelles
+                `<div class="carousel-image">
+                    <img src="${img}" alt="${projectData.title} screenshot" loading="lazy">
+                </div>`
             ).join('');
             currentIndex = 0;
             updateCarousel();
 
-            // Afficher le modal
+            // Sauvegarder la position de scroll et bloquer le scroll
+            scrollPosition = window.pageYOffset;
+            document.body.style.top = `-${scrollPosition}px`;
+            document.body.classList.add('modal-open');
+
+            // Cacher la section contact
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                contactSection.style.display = 'none';
+            }
+
+            // Afficher le modal avec les animations originales
             modal.style.display = 'flex';
+            modal.classList.add('visible');
             setTimeout(() => {
                 modalContent.classList.add('visible');
             }, 10);
         });
     });
 
-    // Fermer le modal
-    modalClose.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
-
-    function closeModal() {
+    // Fonction pour fermer le modal
+    function closeModalWithRestore() {
         modalContent.classList.remove('visible');
+        modal.classList.remove('visible');
+        
         setTimeout(() => {
             modal.style.display = 'none';
+            
+            // Restaurer le scroll de la page sans animation
+            document.body.classList.remove('modal-open');
+            document.body.style.top = '';
+            
+            // Désactiver temporairement le smooth scroll
+            const htmlElement = document.documentElement;
+            const originalScrollBehavior = htmlElement.style.scrollBehavior;
+            htmlElement.style.scrollBehavior = 'auto';
+            // Réafficher la section contact
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                contactSection.style.display = 'block';
+            }
+            // Restaurer la position
+            window.scrollTo(0, scrollPosition);
+            
+            // Remettre le smooth scroll après un court délai
+            setTimeout(() => {
+                htmlElement.style.scrollBehavior = originalScrollBehavior;
+            }, 50);
         }, 300);
     }
+
+
+    // Fermer le modal
+    modalClose.addEventListener('click', closeModalWithRestore);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModalWithRestore();
+    });
 
     // Carousel navigation
     prevButton.addEventListener('click', () => {
@@ -452,8 +470,8 @@ function initializeProjectModal() {
 
     // Accessibilité : fermer avec la touche Échap
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.style.display === 'flex') {
-            closeModal();
+        if (e.key === 'Escape' && modal.classList.contains('visible')) {
+            closeModalWithRestore();
         }
     });
 }

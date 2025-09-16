@@ -34,7 +34,7 @@
             <div class="hero-container container">
                 <div class="hero-content">
                     <span class="hero-greeting">Salut, je suis</span>
-                    <h1 class="hero-name">John Developer</h1>
+                    <h1 class="hero-name">Luke Baffait</h1>
                     <p class="hero-subtitle">Développeur Full-Stack passionné par la création d'expériences digitales innovantes</p>
                     <div class="hero-buttons">
                         <a href="#projects" class="btn btn-primary">Voir mes projets</a>
@@ -59,19 +59,19 @@
                 <h2 class="section-title">À propos de moi</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <p>Développeur passionné avec 3+ années d'expérience dans la création d'applications web et mobiles. Je transforme les idées en solutions digitales performantes et élégantes.</p>
-                        <p>Spécialisé dans les technologies modernes, j'aime relever des défis techniques complexes et créer des expériences utilisateur exceptionnelles.</p>
+                        <p>Développeur passionné avec 3+ années d'expérience dans la création d'applications web et logicielles. Je transforme les idées en solutions digitales performantes et élégantes.</p>
+                        <p>Spécialisé dans les technologies modernes, j'aime relever des défis techniques complexes et créer des solutions innovantes.</p>
                         <div class="about-stats">
                             <div class="stat fade-in">
-                                <span class="stat-number" data-target="20">0</span>
+                                <span class="stat-number" data-target="12">0</span>
                                 <span class="stat-label">Projets réalisés</span>
                             </div>
                             <div class="stat fade-in">
-                                <span class="stat-number" data-target="3">0</span>
+                                <span class="stat-number" data-target="2">0</span>
                                 <span class="stat-label">Années d'expérience</span>
                             </div>
                             <div class="stat fade-in">
-                                <span class="stat-number" data-target="10">0</span>
+                                <span class="stat-number" data-target="12+">0</span>
                                 <span class="stat-label">Technologies maîtrisées</span>
                             </div>
                         </div>
@@ -143,17 +143,17 @@
 
         <section id="projects" class="projects">
             <div class="container">
-                <h2 class="section-title">Mes projets</h2>
+                <h2 class="section-title">Quelques uns de mes projets</h2>
                 <div class="projects-grid">
                     <div class="project-card fade-in" data-project='{
                         "id": "ecommerce",
                         "title": "E-Commerce App",
                         "description": "Application e-commerce complète avec React et Node.js, incluant gestion des commandes et paiements.",
-                        "images": ["project1-img1.jpg", "project1-img2.jpg", "project1-img3.jpg"],
+                        "images": ["assets/projects/skymcdb/image.png", "assets/projects/skymcdb/image2.png", "assets/projects/skymcdb/image3.png"],
                         "tech": ["JavaScript", "MySQL", "CSS"]
                     }'>
                         <div class="project-image">
-                            <div class="image-placeholder">🖼️</div>
+                            <div class="image-placeholder"><img src="assets/projects/skymcdb/image.png"></div>
                         </div>
                         <div class="project-content">
                             <h3 class="project-title">SkymcDB</h3>
@@ -199,8 +199,7 @@
                             <p class="project-description">Application web utilisant Three.js et permettant à l'utilisateur d'interagir dans un environnement en 3D pour convertir des fichiers 3D en structures de blocs.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">Three.js</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">HTML / CSS</span>
+                                <span class="tech-tag">HTML / CSS / JS</span>
                             </div>
                         </div>
                     </div>
@@ -218,9 +217,8 @@
                             <h3 class="project-title">Symphony</h3>
                             <p class="project-description">Application web permettant aux utilisateurs d'heberger et lire leurs musiques ainsi que les autres publiées sur le Symphony.</p>
                             <div class="project-tech">
-                                <span class="tech-tag">JavaScript</span>
                                 <span class="tech-tag">Netlify Functions</span>
-                                <span class="tech-tag">HTML / CSS</span>
+                                <span class="tech-tag">HTML / CSS / JS</span>
                             </div>
                         </div>
                     </div>
@@ -243,22 +241,56 @@
                             </div>
                         </div>
                     </div>
+                    <div class="project-card fade-in" data-project='{
+                        "id": "webgame",
+                        "title": "Jeu Web Interactif",
+                        "description": "Jeu web multijoueur avec physics engine et graphismes 2D avancés.",
+                        "images": ["project4-img1.jpg", "project4-img2.jpg", "project4-img3.jpg"],
+                        "tech": ["JavaScript", "Three.js", "CSS"]
+                    }'>
+                        <div class="project-image">
+                            <div class="image-placeholder">🖼️</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Archers de Liffré</h3>
+                            <p class="project-description">Site web réalisé pour l'association des Archers de Liffré.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">HTML / CSS</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- Modal for project details -->
                 <div id="project-modal" class="modal">
-                    <div class="modal-content fade-in">
-                        <span class="modal-close">&times;</span>
-                        <div class="carousel">
-                            <div class="carousel-images"></div>
-                            <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
-                            <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title"></h3>
+                            <button class="close-modal"><i class="fas fa-times"></i></button>
                         </div>
-                        <h3 class="modal-title"></h3>
-                        <p class="modal-description"></p>
-                        <div class="modal-tech"></div>
-                        <div class="modal-links">
-                            <a href="#" class="project-link"><i class="fas fa-link"></i></a>
-                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        <div class="modal-body">
+                            <div class="modal-image">
+                                <div class="carousel">
+                                    <div class="carousel-images"></div>
+                                    <button class="carousel-prev" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+                                    <button class="carousel-next" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+                            <p class="modal-description"></p>
+                            <div class="modal-tech-stack">
+                                <h4 class="modal-tech-title">Technologies utilisées</h4>
+                                <div class="modal-tech-list"></div>
+                            </div>
+                            <div class="modal-actions">
+                                <a href="#" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Voir le projet
+                                </a>
+                                <a href="#" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github"></i>
+                                    Code source
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
