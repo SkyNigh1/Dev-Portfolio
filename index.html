@@ -20,11 +20,11 @@
                 <span class="bar"></span>
             </div>
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link active">Accueil</a></li>
-                <li><a href="#about" class="nav-link">À propos</a></li>
-                <li><a href="#skills" class="nav-link">Compétences</a></li>
-                <li><a href="#projects" class="nav-link">Projets</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#home" class="nav-link active" aria-label="Aller à la section Accueil">Accueil</a></li>
+                <li><a href="#about" class="nav-link" aria-label="Aller à la section À propos">À propos</a></li>
+                <li><a href="#skills" class="nav-link" aria-label="Aller à la section Compétences">Compétences</a></li>
+                <li><a href="#projects" class="nav-link" aria-label="Aller à la section Projets">Projets</a></li>
+                <li><a href="#contact" class="nav-link" aria-label="Aller à la section Contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -89,6 +89,14 @@
                 <div class="skills-container">
                     <div class="skills-grid">
                         <div class="skill-item fade-in">
+                            <i class="fab fa-java skill-icon"></i>
+                            <span class="skill-name">Java</span>
+                        </div>
+                        <div class="skill-item fade-in">
+                            <i class="fab fa-js skill-icon"></i>
+                            <span class="skill-name">JavaScript</span>
+                        </div>
+                        <div class="skill-item fade-in">
                             <i class="fab fa-html5 skill-icon"></i>
                             <span class="skill-name">HTML</span>
                         </div>
@@ -97,20 +105,16 @@
                             <span class="skill-name">CSS</span>
                         </div>
                         <div class="skill-item fade-in">
-                            <i class="fab fa-js skill-icon"></i>
-                            <span class="skill-name">JavaScript</span>
-                        </div>
-                        <div class="skill-item fade-in">
                             <i class="fas fa-cube skill-icon"></i>
                             <span class="skill-name">Three.js</span>
                         </div>
                         <div class="skill-item fade-in">
-                            <i class="fab fa-python skill-icon"></i>
-                            <span class="skill-name">Python</span>
+                            <i class="fas fa-terminal skill-icon"></i>
+                            <span class="skill-name">Shell</span>
                         </div>
                         <div class="skill-item fade-in">
-                            <i class="fab fa-java skill-icon"></i>
-                            <span class="skill-name">Java</span>
+                            <i class="fab fa-python skill-icon"></i>
+                            <span class="skill-name">Python</span>
                         </div>
                         <div class="skill-item fade-in">
                             <i class="fab fa-php skill-icon"></i>
@@ -141,84 +145,120 @@
             <div class="container">
                 <h2 class="section-title">Mes projets</h2>
                 <div class="projects-grid">
-                    <div class="project-card fade-in">
+                    <div class="project-card fade-in" data-project='{
+                        "id": "ecommerce",
+                        "title": "E-Commerce App",
+                        "description": "Application e-commerce complète avec React et Node.js, incluant gestion des commandes et paiements.",
+                        "images": ["project1-img1.jpg", "project1-img2.jpg", "project1-img3.jpg"],
+                        "tech": ["JavaScript", "MySQL", "CSS"]
+                    }'>
                         <div class="project-image">
                             <div class="image-placeholder">🖼️</div>
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
-                                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                                </div>
-                            </div>
                         </div>
                         <div class="project-content">
-                            <h3 class="project-title">E-Commerce App</h3>
-                            <p class="project-description">Application e-commerce complète avec React et Node.js, incluant gestion des commandes et paiements.</p>
+                            <h3 class="project-title">SkymcDB</h3>
+                            <p class="project-description">Un outil puissant et intuitif conçu pour gérer, organiser et optimiser vos projets de construction. Développé par un builder pour des builders.</p>
                             <div class="project-tech">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">JavaFX</span>
+                                <span class="tech-tag">CSS</span>
                             </div>
                         </div>
                     </div>
-                    <div class="project-card fade-in">
+                    <div class="project-card fade-in" data-project='{
+                        "id": "taskmanager",
+                        "title": "Task Manager",
+                        "description": "Application de gestion de tâches avec interface intuitive et synchronisation temps réel.",
+                        "images": ["project2-img1.jpg", "project2-img2.jpg", "project2-img3.jpg"],
+                        "tech": ["JavaScript", "Three.js", "CSS"]
+                    }'>
                         <div class="project-image">
                             <div class="image-placeholder">🖼️</div>
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
-                                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                                </div>
-                            </div>
                         </div>
                         <div class="project-content">
-                            <h3 class="project-title">Task Manager</h3>
-                            <p class="project-description">Application de gestion de tâches avec interface intuitive et synchronisation temps réel.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Vue.js</span>
-                                <span class="tech-tag">Firebase</span>
-                                <span class="tech-tag">CSS3</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card fade-in">
-                        <div class="project-image">
-                            <div class="image-placeholder">🖼️</div>
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
-                                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Analytics Dashboard</h3>
-                            <p class="project-description">Dashboard analytique avec visualisations de données dynamiques et rapports personnalisés.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Django</span>
-                                <span class="tech-tag">Chart.js</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card fade-in">
-                        <div class="project-image">
-                            <div class="image-placeholder">🖼️</div>
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
-                                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Jeu Web Interactif</h3>
-                            <p class="project-description">Jeu web multijoueur avec physics engine et graphismes 2D avancés.</p>
+                            <h3 class="project-title">ChromaBlock</h3>
+                            <p class="project-description">Adaptation web de SkymcDB, pour élargir l'audience, permettant des fonctionnalitées inédites dans le domaine du build Minecraft</p>
                             <div class="project-tech">
                                 <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Canvas</span>
-                                <span class="tech-tag">Socket.io</span>
+                                <span class="tech-tag">HTML / CSS</span>
                             </div>
+                        </div>
+                    </div>
+                    <div class="project-card fade-in" data-project='{
+                        "id": "analytics",
+                        "title": "Analytics Dashboard",
+                        "description": "Dashboard analytique avec visualisations de données dynamiques et rapports personnalisés.",
+                        "images": ["project3-img1.jpg", "project3-img2.jpg", "project3-img3.jpg"],
+                        "tech": ["Python", "JavaScript", "CSS"]
+                    }'>
+                        <div class="project-image">
+                            <div class="image-placeholder">🖼️</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">BlockR</h3>
+                            <p class="project-description">Application web utilisant Three.js et permettant à l'utilisateur d'interagir dans un environnement en 3D pour convertir des fichiers 3D en structures de blocs.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Three.js</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">HTML / CSS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card fade-in" data-project='{
+                        "id": "webgame",
+                        "title": "Jeu Web Interactif",
+                        "description": "Jeu web multijoueur avec physics engine et graphismes 2D avancés.",
+                        "images": ["project4-img1.jpg", "project4-img2.jpg", "project4-img3.jpg"],
+                        "tech": ["JavaScript", "Three.js", "CSS"]
+                    }'>
+                        <div class="project-image">
+                            <div class="image-placeholder">🖼️</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Symphony</h3>
+                            <p class="project-description">Application web permettant aux utilisateurs d'heberger et lire leurs musiques ainsi que les autres publiées sur le Symphony.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Netlify Functions</span>
+                                <span class="tech-tag">HTML / CSS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card fade-in" data-project='{
+                        "id": "webgame",
+                        "title": "Jeu Web Interactif",
+                        "description": "Jeu web multijoueur avec physics engine et graphismes 2D avancés.",
+                        "images": ["project4-img1.jpg", "project4-img2.jpg", "project4-img3.jpg"],
+                        "tech": ["JavaScript", "Three.js", "CSS"]
+                    }'>
+                        <div class="project-image">
+                            <div class="image-placeholder">🖼️</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Echo</h3>
+                            <p class="project-description">L'utilisateur peut interagir et discuter avec une intelligence artificielle qui marche en local à travers la page web (Qwen).</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">HTML / CSS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal for project details -->
+                <div id="project-modal" class="modal">
+                    <div class="modal-content fade-in">
+                        <span class="modal-close">&times;</span>
+                        <div class="carousel">
+                            <div class="carousel-images"></div>
+                            <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <h3 class="modal-title"></h3>
+                        <p class="modal-description"></p>
+                        <div class="modal-tech"></div>
+                        <div class="modal-links">
+                            <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>

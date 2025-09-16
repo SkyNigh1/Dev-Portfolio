@@ -22,7 +22,6 @@ function initializeApp() {
         });
     } catch (error) {
         console.error('Error initializing app:', error);
-        // Ensure sections are visible even if initialization fails
         document.querySelectorAll('section').forEach(section => {
             section.classList.add('visible');
         });
@@ -60,6 +59,7 @@ function initializeComponents() {
     initializeContactForm();
     initializeParallax();
     initializeTypewriter();
+    initializeProjectModal();
 }
 
 // Navigation
@@ -130,7 +130,6 @@ function initializeAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // Optional: Unobserve after becoming visible to improve performance
                 animationObserver.unobserve(entry.target);
             }
         });
@@ -141,14 +140,13 @@ function initializeAnimations() {
         animationObserver.observe(el);
     });
 
-    // Fallback: Make sections visible after a timeout if observer fails
     setTimeout(() => {
         animatedElements.forEach(el => {
             if (!el.classList.contains('visible')) {
                 el.classList.add('visible');
             }
         });
-    }, 3000); // 3 seconds fallback
+    }, 3000);
 }
 
 // Ajouter les classes d'animation
@@ -177,20 +175,23 @@ function addAnimationClasses() {
 // Scroll fluide
 function initializeSmoothScroll() {
     const links = document.querySelectorAll('a[href^="#"]');
+    
     links.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const targetId = link.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
+            
             if (targetSection) {
                 const offsetTop = targetSection.offsetTop - 70;
+                
                 window.scrollTo({
                     top: offsetTop,
                     behavior: 'smooth'
                 });
-                console.log(`Scrolled to section: ${targetId}`); // Debug
+                console.log(`Scrolled to section: ${targetId}`);
             } else {
-                console.error(`Section not found: ${targetId}`); // Debug
+                console.error(`Section not found: ${targetId}`);
             }
         });
     });
@@ -379,6 +380,84 @@ function initializeTypewriter() {
     setTimeout(typeWriter, 1000);
 }
 
+// Initialiser le modal des projets
+function initializeProjectModal() {
+    const modal = document.getElementById('project-modal');
+    const modalContent = modal.querySelector('.modal-content');
+    const modalClose = modal.querySelector('.modal-close');
+    const projectCards = document.querySelectorAll('.project-card');
+    const carouselImages = modal.querySelector('.carousel-images');
+    const prevButton = modal.querySelector('.carousel-prev');
+    const nextButton = modal.querySelector('.carousel-next');
+    let currentIndex = 0;
+    let images = [];
+
+    // Ouvrir le modal
+    projectCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const projectData = JSON.parse(card.getAttribute('data-project'));
+            images = projectData.images;
+
+            // Remplir le modal
+            modal.querySelector('.modal-title').textContent = projectData.title;
+            modal.querySelector('.modal-description').textContent = projectData.description;
+            const techContainer = modal.querySelector('.modal-tech');
+            techContainer.innerHTML = projectData.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('');
+            modal.querySelectorAll('.project-link')[0].href = `#${projectData.id}-demo`;
+            modal.querySelectorAll('.project-link')[1].href = `#${projectData.id}-github`;
+
+            // Remplir le carousel
+            carouselImages.innerHTML = images.map(img => 
+                `<div class="carousel-image-placeholder">🖼️</div>`
+                // Remplacez par `<img src="${img}" alt="${projectData.title} screenshot" class="carousel-image">` lorsque vous avez des images réelles
+            ).join('');
+            currentIndex = 0;
+            updateCarousel();
+
+            // Afficher le modal
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modalContent.classList.add('visible');
+            }, 10);
+        });
+    });
+
+    // Fermer le modal
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    function closeModal() {
+        modalContent.classList.remove('visible');
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300);
+    }
+
+    // Carousel navigation
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateCarousel();
+    });
+
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateCarousel();
+    });
+
+    function updateCarousel() {
+        carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    // Accessibilité : fermer avec la touche Échap
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === 'flex') {
+            closeModal();
+        }
+    });
+}
+
 // Utilitaires
 function debounce(func, wait) {
     let timeout;
@@ -436,7 +515,19 @@ window.addEventListener('resize', optimizedResizeHandler);
 // Préchargement des images
 function preloadImages() {
     const imageUrls = [
-        // Ajouter ici les URLs des images à précharger
+        // Ajouter ici les URLs des images des projets
+        'project1-img1.jpg',
+        'project1-img2.jpg',
+        'project1-img3.jpg',
+        'project2-img1.jpg',
+        'project2-img2.jpg',
+        'project2-img3.jpg',
+        'project3-img1.jpg',
+        'project3-img2.jpg',
+        'project3-img3.jpg',
+        'project4-img1.jpg',
+        'project4-img2.jpg',
+        'project4-img3.jpg'
     ];
     
     imageUrls.forEach(url => {
