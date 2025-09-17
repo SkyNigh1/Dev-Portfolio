@@ -382,8 +382,26 @@ function initializeProjectModal() {
             // Mettre à jour les liens des boutons d'action
             const actionButtons = modal.querySelectorAll('.modal-actions a');
             if (actionButtons.length >= 2) {
-                actionButtons[0].href = `#${projectData.id}-demo`;
-                actionButtons[1].href = `#${projectData.id}-github`;
+                actionButtons[0].href = projectData.demoUrl || '#';
+                actionButtons[1].href = projectData.githubUrl || '#';
+                
+                // Masquer les boutons si pas d'URL et gérer les clics
+                actionButtons.forEach(button => {
+                    const url = button.href;
+                    button.style.display = url !== '#' ? 'inline-flex' : 'none';
+                    
+                    // Supprimer les anciens event listeners
+                    button.replaceWith(button.cloneNode(true));
+                });
+
+                // Réattacher les event listeners aux nouveaux boutons
+                modal.querySelectorAll('.modal-actions a').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        if (button.href === '#') {
+                            e.preventDefault();
+                        }
+                    });
+                });
             }
 
             // Remplir le carousel
