@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Developer - Portfolio</title>
+    <title>Jesus - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <span class="logo-text">&lt;Dev/&gt;</span>
+                <span class="logo-text">&lt;Portfolio/&gt;</span>
             </div>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
@@ -29,13 +29,19 @@
         </div>
     </nav>
 
+    <!-- Fullscreen view container -->
+    <div class="fullscreen-view">
+        <img class="fullscreen-image" src="" alt="Image en plein écran">
+        <button class="fullscreen-close" aria-label="Fermer le plein écran"><i class="fas fa-times"></i></button>
+    </div>
+
     <main>
         <section id="home" class="hero">
             <div class="hero-container container">
                 <div class="hero-content">
                     <span class="hero-greeting">Salut, je suis</span>
-                    <h1 class="hero-name">Luke Baffait</h1>
-                    <p class="hero-subtitle">Développeur Full-Stack passionné par la création d'expériences digitales innovantes</p>
+                    <h1 class="hero-name">Jesus</h1>
+                    <p class="hero-subtitle">Étudiant en BUT Informatique / cyber-sécurité passionné par la création d'expériences digitales innovantes</p>
                     <div class="hero-buttons">
                         <a href="#projects" class="btn btn-primary">Voir mes projets</a>
                         <a href="#contact" class="btn btn-secondary">Me contacter</a>
@@ -59,8 +65,9 @@
                 <h2 class="section-title">À propos de moi</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <p>Développeur passionné avec 3+ années d'expérience dans la création d'applications web et logicielles. Je transforme les idées en solutions digitales performantes et élégantes.</p>
+                        <p>Développeur passionné avec 2+ années d'expérience dans la création d'applications web et logicielles. J'apprécie énormément tout ce qui implique une phase créative.</p>
                         <p>Spécialisé dans les technologies modernes, j'aime relever des défis techniques complexes et créer des solutions innovantes.</p>
+                        <p>Ma passion pour la communauté autour du jeu Minecraft m'a poussée à créer toujours plus d'outils tels que <a href="https://skynigh1.github.io/ChromaBlock/" target="_blank" rel="noopener noreferrer" class="text-link">ChromaBlock</a>, <a href="https://skynigh1.github.io/SkyNight-Building-website/skymcdb.html" target="_blank" rel="noopener noreferrer" class="text-link">SkymcDB</a> ou encore <a href="https://skynigh1.github.io/Blockr/" target="_blank" rel="noopener noreferrer" class="text-link">BlockR</a> en incluant des solutions techniques totalement inédites lors de leurs sorties.</p>
                         <div class="about-stats">
                             <div class="stat fade-in">
                                 <span class="stat-number" data-target="12">0</span>
@@ -78,6 +85,10 @@
                     </div>
                     <div class="about-image">
                         <div class="image-placeholder">📸</div>
+                        <a href="https://portfolio.univ-rennes1.fr/student/23023684" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                            <i class="fas fa-graduation-cap"></i>
+                            Portfolio Universitaire
+                        </a>
                     </div>
                 </div>
             </div>
@@ -97,8 +108,8 @@
                             <span class="skill-name">JavaScript</span>
                         </div>
                         <div class="skill-item fade-in">
-                            <i class="fab fa-html5 skill-icon"></i>
-                            <span class="skill-name">HTML</span>
+                            <img src="assets/logo/rootme.webp" alt="Root-Me" class="skill-icon custom-icon">
+                            <span class="skill-name">Root-Me / Cyber</span>
                         </div>
                         <div class="skill-item fade-in">
                             <i class="fab fa-css3-alt skill-icon"></i>
@@ -234,7 +245,7 @@
                         "id": "echo",
                         "title": "Echo",
                         "description": "L&apos;utilisateur peut interagir et discuter avec une intelligence artificielle qui marche en local à travers la page web (Qwen)",
-                        "images": ["assets/projects/echo/image.png", "project4-img2.jpg", "project4-img3.jpg"],
+                        "images": ["assets/projects/echo/image.png"],
                         "tech": ["JavaScript", "HTML / CSS"],
                         "demoUrl": "https://skynigh1.github.io/Echo/",
                         "githubUrl": "https://github.com/SkyNigh1/Echo"
@@ -286,6 +297,7 @@
                                     <div class="carousel-images"></div>
                                     <button class="carousel-prev" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
                                     <button class="carousel-next" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+                                    <button class="fullscreen-btn" aria-label="Plein écran"><i class="fas fa-expand"></i></button>
                                 </div>
                             </div>
                             <p class="modal-description"></p>
@@ -319,22 +331,21 @@
                         <div class="contact-details">
                             <div class="contact-item">
                                 <i class="fas fa-envelope"></i>
-                                <span>john.developer@email.com</span>
+                                <span>jesus.developer@email.com</span>
                             </div>
                             <div class="contact-item">
                                 <i class="fas fa-phone"></i>
-                                <span>+33 6 12 34 56 78</span>
+                                <span>+33 X XX XX XX XX</span>
                             </div>
                             <div class="contact-item">
                                 <i class="fas fa-map-marker-alt"></i>
-                                <span>Paris, France</span>
+                                <span>Vannes, France</span>
                             </div>
                         </div>
                         <div class="social-links">
                             <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="https://github.com/SkyNigh1" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="https://www.instagram.com/skynight.arts/" class="social-link"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                     <form id="contact-form" class="contact-form">

@@ -364,6 +364,10 @@ function initializeProjectModal() {
     const carouselImages = modal.querySelector('.carousel-images');
     const prevButton = modal.querySelector('.carousel-prev');
     const nextButton = modal.querySelector('.carousel-next');
+    const fullscreenBtn = modal.querySelector('.fullscreen-btn');
+    const fullscreenView = document.querySelector('.fullscreen-view');
+    const fullscreenImage = fullscreenView.querySelector('.fullscreen-image');
+    const fullscreenClose = fullscreenView.querySelector('.fullscreen-close');
     let currentIndex = 0;
     let images = [];
 
@@ -411,6 +415,16 @@ function initializeProjectModal() {
                 </div>`
             ).join('');
             currentIndex = 0;
+            
+            // Gérer l'affichage des flèches en fonction du nombre d'images
+            if (images.length <= 1) {
+                prevButton.style.display = 'none';
+                nextButton.style.display = 'none';
+            } else {
+                prevButton.style.display = 'flex';
+                nextButton.style.display = 'flex';
+            }
+            
             updateCarousel();
 
             // Sauvegarder la position de scroll et bloquer le scroll
@@ -485,6 +499,36 @@ function initializeProjectModal() {
     function updateCarousel() {
         carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
+
+    // Gestion du mode plein écran
+    fullscreenBtn.addEventListener('click', () => {
+        const currentImage = images[currentIndex];
+        fullscreenImage.src = currentImage;
+        fullscreenView.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+
+    function closeFullscreen() {
+        fullscreenView.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Fermer avec le bouton de fermeture
+    fullscreenClose.addEventListener('click', closeFullscreen);
+
+    // Fermer en cliquant en dehors de l'image
+    fullscreenView.addEventListener('click', (e) => {
+        if (e.target === fullscreenView) {
+            closeFullscreen();
+        }
+    });
+
+    // Fermer le plein écran avec Échap
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeFullscreen();
+        }
+    });
 
     // Accessibilité : fermer avec la touche Échap
     document.addEventListener('keydown', (e) => {
