@@ -281,18 +281,19 @@ function initializeContactForm() {
 
 // Gérer la soumission du formulaire
 function handleFormSubmit(e) {
-    e.preventDefault();
-    
-    const formData = new FormData(e.target);
+    const form = e.target;
+    const formData = new FormData(form);
     const data = Object.fromEntries(formData);
     
     // Validation simple
-    if (validateForm(data)) {
-        showNotification('Message envoyé avec succès!', 'success');
-        e.target.reset();
-    } else {
+    if (!validateForm(data)) {
+        e.preventDefault();
         showNotification('Veuillez remplir tous les champs.', 'error');
+        return;
     }
+
+    // Le formulaire sera soumis automatiquement à FormSubmit
+    showNotification('Envoi en cours...', 'info');
 }
 
 // Valider le formulaire
