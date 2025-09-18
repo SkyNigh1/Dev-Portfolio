@@ -524,7 +524,7 @@ section.contact {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6rem;
+    gap: 2rem;
 }
 
 .about-image .btn {
