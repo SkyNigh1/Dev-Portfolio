@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jesus - Portfolio</title>
+    <title>Luke Baffait - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@
             <div class="hero-container container">
                 <div class="hero-content">
                     <span class="hero-greeting">Salut, je suis</span>
-                    <h1 class="hero-name">Jesus</h1>
+                    <h1 class="hero-name">Luke Baffait</h1>
                     <p class="hero-subtitle">Étudiant en BUT Informatique / cyber-sécurité passionné par la création d'expériences digitales innovantes</p>
                     <div class="hero-buttons">
                         <a href="#projects" class="btn btn-primary">Voir mes projets</a>
@@ -48,11 +48,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <div class="floating-elements">
-                        <span class="float-element">💻</span>
-                        <span class="float-element">🚀</span>
-                        <span class="float-element">⚡</span>
-                    </div>
+                    <canvas id="cyberVortex" class="cyber-vortex"></canvas>
                 </div>
             </div>
             <div class="scroll-indicator">
@@ -84,8 +80,8 @@
                         </div>
                     </div>
                     <div class="about-image">
-                        <div class="image-placeholder">📸</div>
-                        <a href="https://portfolio.univ-rennes1.fr/student/23023684" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        <img src="assets/head/me.png" alt="Photo de profil" class="profile-image" style="width: 100%; height: auto;">
+                        <a href="https://baffait.notion.site/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                             <i class="fas fa-graduation-cap"></i>
                             Portfolio Universitaire
                         </a>
@@ -331,11 +327,11 @@
                         <div class="contact-details">
                             <div class="contact-item">
                                 <i class="fas fa-envelope"></i>
-                                <span>jesus@gmail.com</span>
+                                <span>luke.baffait@yahoo.com</span>
                             </div>
                             <div class="contact-item">
                                 <i class="fas fa-phone"></i>
-                                <span>+33 X XX XX XX XX</span>
+                                <span>+33 7 66 19 98 31</span>
                             </div>
                             <div class="contact-item">
                                 <i class="fas fa-map-marker-alt"></i>
@@ -374,11 +370,12 @@
 
     <footer class="footer">
         <div class="container footer-content">
-            <p>&copy; 2025 John Developer. Tous droits réservés.</p>
-            <p>Conçu avec ❤️ et beaucoup de café</p>
+            <p>&copy; 2025 Luke Baffait. Tous droits réservés.</p>
+            <p>Conçu avec ❤️</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script src="vortex.js"></script>
 </body>
 </html>

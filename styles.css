@@ -260,6 +260,25 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 600px;
+    height: 600px;
+}
+
+.cyber-vortex {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.float-element {
+    position: absolute;
+    font-size: 2rem;
+    color: var(--primary-color);
+    animation: floatAround 8s ease-in-out infinite;
+    animation-delay: var(--delay);
+    z-index: 1;
 }
 
 .floating-elements {
@@ -788,6 +807,13 @@ section.contact {
 .footer-content p {
     margin-bottom: 0.5rem;
     opacity: 0.8;
+}
+
+.profile-image{
+    border-radius: 2%;
+    border: 2px solid var(--border-color);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
 }
 
 /* Animations d'apparition */
